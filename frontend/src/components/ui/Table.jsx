@@ -37,7 +37,7 @@ function Table() {
       {
         accessorKey: "category", //normal accessorKey
         header: "Category",
-        size: 200,
+        size: 150,
       },
     //   {
     //     accessorKey: "city",
