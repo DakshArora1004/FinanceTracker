@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { ResponsivePie } from "@nivo/pie";
-import Table from "./ui/Table";
+
 function Home() {
   const baseURL = "http://127.0.0.1:8000/transactions";
   const [transactions, setTransactions] = useState([]);
@@ -57,8 +57,6 @@ function Home() {
   
   return (
     <div style={{ height: "100%" }}>
-      
-      <Table/>
       <div style={{ height: "500px" }}>
       <ResponsivePie
         data={data}
