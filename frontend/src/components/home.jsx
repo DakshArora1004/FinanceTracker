@@ -5,7 +5,10 @@ import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
 import { Box } from "@mui/material";
 import EditIcon from '@mui/icons-material/Edit';
+import { Navigate, useNavigate } from "react-router-dom";
+
 function Home() {
+  const navigate = useNavigate();
   const baseURL = "http://127.0.0.1:8000/transactions";
   const [transactions, setTransactions] = useState([]);
   const [sum, setSum] = useState(0);
@@ -23,7 +26,9 @@ function Home() {
         console.error("There was an error!", error);
       });
   }, []);
-
+  const goToCreate=()=>{
+    navigate('create/')
+  }
   useEffect(() => {
     let newSum = 0;
     let newCategorizedSum = {};
@@ -178,11 +183,8 @@ function Home() {
         />
       </div>
       <Box sx={{display: 'flex', gap: '5px', justifyContent: 'center'}}>
-      <Button variant="contained" endIcon={<AddIcon />}>
+      <Button variant="contained" endIcon={<AddIcon />} onClick={goToCreate} >
         Add Transaction
-      </Button>
-      <Button variant="outlined" endIcon={<EditIcon />}>
-        Edit Transaction
       </Button>
       </Box>
     </div>

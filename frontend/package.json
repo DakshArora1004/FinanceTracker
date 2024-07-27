@@ -23,6 +23,7 @@
     "bootstrap": "^5.3.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "dayjs": "^1.11.12",
     "lucide-react": "^0.414.0",
     "material-react-table": "^2.13.0",
     "react": "^18.3.1",

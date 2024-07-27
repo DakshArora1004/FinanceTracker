@@ -11,7 +11,7 @@ function NavBar() {
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/transactions">Your Transactions</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Nav.Link href="#pricing">View Charts</Nav.Link>
           </Nav>
         
       </Navbar>

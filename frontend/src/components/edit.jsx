@@ -5,10 +5,14 @@ import MySelectField from "./ui/MySelectFIeld";
 import { Button } from "@mui/material";
 import axios from "axios";
 import { Navigate,useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 
-function Create() {
-    const { handleSubmit, control } = useForm();
+function Edit() {
+    const { handleSubmit, control, setValue} = useForm();
     const navigate = useNavigate();
+    const Params=useParams();
+    const id=Params.id;
     const options = [
         { id: "Food", name: "Food" },
         { id: "TRANSPORT", name: "Transport" },
@@ -25,7 +29,7 @@ function Create() {
       };
       console.log("Sending data:", postData);
       
-      axios.post('http://127.0.0.1:8000/transactions/', postData)
+      axios.put(`http://127.0.0.1:8000/transactions/${id}/`, postData)
         .then(response => {
           navigate('/')
         })
@@ -33,6 +37,17 @@ function Create() {
           console.error('Error:', error);
         });
       }
+      useEffect(()=>{
+        axios.get(`http://127.0.0.1:8000/transactions/${id}`).then((res)=>{
+            console.log(res.data);
+            setValue('text',res.data.text),
+            setValue('amount',res.data.amount),
+            setValue('Category',res.data.category)
+        })
+        .catch((error)=>{
+            console.log(error)
+        })
+      },[]);
     
 
     return (
@@ -84,4 +99,4 @@ function Create() {
     );
 }
 
-export default Create;
+export default Edit;
