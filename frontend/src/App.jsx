@@ -6,7 +6,7 @@ import Transactions from "./components/Transactions";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Create from "./components/create";
 import Edit from "./components/edit";
-
+import Delete from "./components/delete";
 function App() {
   const [count, setCount] = useState(0);
 
@@ -18,6 +18,7 @@ function App() {
         <Route path="transactions" element={<Transactions/>}/> 
         <Route path="/create" element={<Create />} />
         <Route path="/edit/:id" element={<Edit/>}/>
+        <Route path="/delete/:id" element={<Delete/>}/>
       </Routes>
     </>
   );
