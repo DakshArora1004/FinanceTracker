@@ -7,7 +7,7 @@ function NavBar() {
     <>
       <Navbar bg="primary" data-bs-theme="dark">
         
-          <Navbar.Brand href="#home">Finance Tracker</Navbar.Brand>
+          <Navbar.Brand href="/">Finance Tracker</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/transactions">Your Transactions</Nav.Link>
