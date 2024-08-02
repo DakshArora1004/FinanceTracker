@@ -7,7 +7,8 @@ import { Box } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import { Navigate, useNavigate } from "react-router-dom";
 import { ExportToExcel } from "./ui/ExportToExcel";
-
+import PieChart from "./ui/pieChart";
+import HomeBar from "./homeui/HomeBar";
 function Home() {
   const navigate = useNavigate();
   const baseURL = "http://127.0.0.1:8000/transactions";
@@ -45,6 +46,7 @@ function Home() {
     });
     setCategorizedSum(newCategorizedSum);
     setSum(newSum);
+    // console.log(newSum);
   }, [transactions]);
   useEffect(() => {
     let data = [];
@@ -59,141 +61,15 @@ function Home() {
     setData(data);
     console.log(data);
   }, [categorizedSum]);
-  console.log(categorizedSum);
+  // console.log(categorizedSum);
   let categories = Object.keys(categorizedSum);
 
   return (
+    
     <Box sx={{ textAlign: "center" }}>
-      <div style={{ height: "100%" }}>
-        <div style={{ height: "500px" }}>
-          <ResponsivePie
-            data={data}
-            margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
-            innerRadius={0.5}
-            padAngle={0.7}
-            cornerRadius={3}
-            activeOuterRadiusOffset={8}
-            borderWidth={1}
-            colors={{ scheme: "paired" }}
-            borderColor={{
-              from: "color",
-              modifiers: [
-                ["darker", 0.6],
-                ["opacity", 0.5],
-              ],
-            }}
-            arcLinkLabelsSkipAngle={10}
-            arcLinkLabelsTextColor="#333333"
-            arcLinkLabelsThickness={2}
-            arcLinkLabelsColor={{ from: "color" }}
-            arcLabelsSkipAngle={10}
-            arcLabelsTextColor={{
-            from: 'color',
-            modifiers: [
-                [
-                    'brighter',
-                    '3'
-                ]
-            ]
-        }}
-            defs={[
-              {
-                id: "dots",
-                type: "patternDots",
-                background: "inherit",
-                color: "rgba(255, 255, 255, 0.3)",
-                size: 4,
-                padding: 1,
-                stagger: true,
-              },
-              {
-                id: "lines",
-                type: "patternLines",
-                background: "inherit",
-                color: "rgba(255, 255, 255, 0.3)",
-                rotation: -45,
-                lineWidth: 6,
-                spacing: 10,
-              },
-            ]}
-            fill={[
-              {
-                match: {
-                  id: "ruby",
-                },
-                id: "dots",
-              },
-              {
-                match: {
-                  id: "c",
-                },
-                id: "dots",
-              },
-              {
-                match: {
-                  id: "go",
-                },
-                id: "dots",
-              },
-              {
-                match: {
-                  id: "python",
-                },
-                id: "dots",
-              },
-              {
-                match: {
-                  id: "scala",
-                },
-                id: "lines",
-              },
-              {
-                match: {
-                  id: "lisp",
-                },
-                id: "lines",
-              },
-              {
-                match: {
-                  id: "elixir",
-                },
-                id: "lines",
-              },
-              {
-                match: {
-                  id: "javascript",
-                },
-                id: "lines",
-              },
-            ]}
-            // legends={[
-            //   {
-            //     anchor: "bottom",
-            //     direction: "row",
-            //     justify: false,
-            //     translateX: 0,
-            //     translateY: 56,
-            //     itemsSpacing: 0,
-            //     itemWidth: 100,
-            //     itemHeight: 18,
-            //     itemTextColor: "#999",
-            //     itemDirection: "left-to-right",
-            //     itemOpacity: 1,
-            //     symbolSize: 18,
-            //     symbolShape: "circle",
-            //     effects: [
-            //       {
-            //         on: "hover",
-            //         style: {
-            //           itemTextColor: "#000",
-            //         },
-            //       },
-            //     ],
-            //   },
-            // ]}
-          />
-        </div>
-        <Box sx={{ display: "flex", gap: "5px", justifyContent: "center" }}>
+      <HomeBar></HomeBar>
+      <PieChart data={data}/>
+      <Box sx={{ display: "flex", gap: "5px", justifyContent: "center" }}>
           <Button
             variant="contained"
             endIcon={<AddIcon />}
@@ -203,7 +79,6 @@ function Home() {
           </Button>
           <ExportToExcel apiData={transactions} fileName={fileName} />
         </Box>
-      </div>
     </Box>
   );
 }

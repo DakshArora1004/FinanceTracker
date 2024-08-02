@@ -5,6 +5,8 @@ import MySelectField from "./ui/MySelectFIeld";
 import { Button } from "@mui/material";
 import axios from "axios";
 import { Navigate,useNavigate } from "react-router-dom";
+import MyDatePickerField from "./ui/MyDatePickerField";
+import dayjs from "dayjs";
 
 function Create() {
     const { handleSubmit, control } = useForm();
@@ -18,10 +20,12 @@ function Create() {
     ];
 
     const submission = (data) => {
+        const date= dayjs(data.date["$d"]).format('YYYY-MM-DD');
       const postData = {
         text: data.text,
         amount: data.amount,
-        category: data.Category.toUpperCase()  // Assuming the select field is named "Category"
+        category: data.Category.toUpperCase(), // Assuming the select field is named "Category"
+        date: date
       };
       console.log("Sending data:", postData);
       
@@ -79,7 +83,9 @@ function Create() {
                 >
                     Submit
                 </Button>
+                <MyDatePickerField width='30%' label="Start Date" name="date" control={control} />
             </Box>
+            
         </form>
     );
 }
