@@ -39,7 +39,7 @@ function HomeBar({transactions, incomeTransaction}) {
     "November":10,
     "December":11,
   }
-  const years = [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024];
+  const years = [2016,2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024];
 
   const [selectedMonth, setSelectedMonth] = React.useState(defaultValueMonth);
   const [selectedYear, setSelectedYear] = React.useState(defaultValueYear);
