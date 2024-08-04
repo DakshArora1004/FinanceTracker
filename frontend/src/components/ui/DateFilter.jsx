@@ -17,7 +17,16 @@ const StyledFormControl = styled(FormControl)(({ theme }) => ({
 }));
 
 export default function DateFilter({ data, name, onChange }) {
-  const [value, setValue] = React.useState("");
+  let defaultValue = "";
+  const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  if(name==="Month"){
+    defaultValue=month[new Date().getMonth()];
+  }
+  if(name==="Years"){
+    defaultValue=new Date().getFullYear();
+    console.log("Year is"+defaultValue);
+  }
+  const [value, setValue] = React.useState(defaultValue);
 
   const handleChange = (event) => {
     const newValue = event.target.value;

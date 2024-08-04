@@ -12,7 +12,9 @@ import HomeBar from "./homeui/HomeBar";
 function Home() {
   const navigate = useNavigate();
   const baseURL = "http://127.0.0.1:8000/transactions";
-  const [transactions, setTransactions] = useState([]);
+  const baseURL2 = "http://127.0.0.1:8000/incomes";
+  const [transactions, setExpenseTransactions] = useState([]);
+  const [incomes, setIncomeTransactions] = useState([]);
   const [sum, setSum] = useState(0);
   const [categorizedSum, setCategorizedSum] = useState({});
   const [data, setData] = useState([]);
@@ -23,12 +25,23 @@ function Home() {
       .get(baseURL)
       .then((response) => {
         console.log(response.data);
-        setTransactions(response.data);
+        setExpenseTransactions(response.data);
       })
       .catch((error) => {
         console.error("There was an error!", error);
       });
   }, []);
+  useEffect(() => {
+    axios
+      .get(baseURL2)
+      .then((response) => {
+        console.log(response.data);
+        setIncomeTransactions(response.data);
+      })
+      .catch((error) => {
+        console.error("There was an error!", error);
+      });
+  },[]);
   const goToCreate = () => {
     navigate("create/");
   };
@@ -67,7 +80,7 @@ function Home() {
   return (
     
     <Box sx={{ textAlign: "center" }}>
-      <HomeBar></HomeBar>
+      <HomeBar transactions={transactions} incomeTransaction = {incomes}></HomeBar>
       <PieChart data={data}/>
       <Box sx={{ display: "flex", gap: "5px", justifyContent: "center" }}>
           <Button

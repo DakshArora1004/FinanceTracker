@@ -4,7 +4,7 @@ from django.db import models
 class Income(models.Model):
     text = models.CharField(max_length=255)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
-    date = models.DateTimeField()
+    date = models.DateField()
     def __str__(self):
         return self.text
 
@@ -20,7 +20,7 @@ class Transactions(models.Model):
         
     text = models.CharField(max_length=255)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
-    date = models.DateTimeField()
+    date = models.DateField()
     category = models.CharField(max_length=255, choices=CATEGORY_CHOICES)
     def __str__(self):
         return self.text

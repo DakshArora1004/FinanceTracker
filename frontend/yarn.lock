@@ -395,6 +395,16 @@
   resolved "https://registry.npmjs.org/@floating-ui/utils/-/utils-0.2.5.tgz"
   integrity sha512-sTcG+QZ6fdEUObICavU+aB3Mp8HY4n14wYHdxK4fXjPmv3PXZZeY5RaguJmGyeH/CJQhX3fqKUtS4qc1LoHwhQ==
 
+"@fontsource/merriweather@^5.0.13":
+  version "5.0.13"
+  resolved "https://registry.npmjs.org/@fontsource/merriweather/-/merriweather-5.0.13.tgz"
+  integrity sha512-V/UsU+5yceDICBUJJXWCT+6xf5YpLIVUHfUjBQ+NNbllIhe3zaVZ1f3t5+fNKwvBzKBDa3RNMCofAdW7uzw08Q==
+
+"@fontsource/playfair-display@^5.0.24":
+  version "5.0.24"
+  resolved "https://registry.npmjs.org/@fontsource/playfair-display/-/playfair-display-5.0.24.tgz"
+  integrity sha512-r+h+PWl8R4dIQ5FikbwUGBF/DPsozH7YcfCxEcUm9SthLCcdKT53KH7iNGhF8RTCV325dyu/JjrA3G3JPUl5hQ==
+
 "@fontsource/roboto@^5.0.13":
   version "5.0.13"
   resolved "https://registry.npmjs.org/@fontsource/roboto/-/roboto-5.0.13.tgz"
