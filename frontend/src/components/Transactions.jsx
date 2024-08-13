@@ -1,7 +1,9 @@
 
 import Table from "./ui/Table";
-
-function Transactions(){
+import HomeBar from "./homeui/HomeBar";
+import { Home } from "lucide-react";
+function Transactions({transactions,incomeTransactions}){
+    <HomeBar name={Transactions}/>
     return <Table/>
 }
 

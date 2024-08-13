@@ -1,0 +1,61 @@
+.vertical-nav {
+  background-color: #007bff;
+  color: white;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  width: 250px;  /* Changed to expanded width by default */
+}
+
+.vertical-nav:not(.expanded) {
+  width: 60px;
+}
+
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-header h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-item {
+  color: white !important;  /* Ensure text is always white */
+  padding: 15px 20px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.nav-item:hover {
+  background-color: white;
+  color: #007bff !important;  /* Change text color to navbar color on hover */
+}
+
+.nav-item i {
+  margin-right: 15px;
+  width: 20px;
+  text-align: center;
+}
+
+/* Add this new style for the hover effect */
+.nav-item:hover i {
+  color: #007bff;
+}

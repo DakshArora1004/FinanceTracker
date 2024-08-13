@@ -17,7 +17,7 @@ const Item = styled('div')(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-function HomeBar({transactions, incomeTransaction}) {
+function HomeBar({title,transactions, incomeTransaction}) {
   const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
   
     let defaultValueMonth=new Date().getMonth();
@@ -57,7 +57,7 @@ function HomeBar({transactions, incomeTransaction}) {
       <Grid container alignItems="center" justifyContent="space-between" sx={{ mb: 3 }}>
         <Grid item xs={12} md={6} display="flex" justifyContent="flex-start">
           <Typography variant="h3" color="primary" sx={{ fontFamily: 'Arial, sans-serif', fontWeight: '700' }}>
-            Dashboard
+            {title}
           </Typography>
         </Grid>
         <Grid item xs={12} md={6} display="flex" justifyContent="flex-end" sx={{ mt: { xs: 2, md: 0 } }}>

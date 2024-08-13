@@ -7,12 +7,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Create from "./components/create";
 import Edit from "./components/edit";
 import Delete from "./components/delete";
+import { TransactionProvider } from "./context/TransactionContext";
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
+    <TransactionProvider>
     <NavBar/>
+    <div style={{ marginLeft: '250px', padding: '20px' }}>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="transactions" element={<Transactions/>}/> 
@@ -20,7 +22,8 @@ function App() {
         <Route path="/edit/:id" element={<Edit/>}/>
         <Route path="/delete/:id" element={<Delete/>}/>
       </Routes>
-    </>
+      </div>
+    </TransactionProvider>
   );
 }
 
