@@ -6,9 +6,7 @@ import { styled } from '@mui/material/styles';
 const StyledCard = styled(Card)(({ theme }) => ({
   minWidth: 275,
   background: `
-    radial-gradient(circle at 10% 20%, rgba(255, 0, 0, 0.1) 0%, rgba(255, 0, 0, 0) 50%),
-    radial-gradient(circle at 90% 80%, rgba(0, 0, 255, 0.1) 0%, rgba(0, 0, 255, 0) 50%),
-    linear-gradient(135deg, #ffffff 0%, #f5f8ff 100%)
+    linear-gradient(-225deg, #7DE2FC 0%, #B9B6E5 100%)
   `,
   boxShadow: '0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06)',
   borderRadius: '16px',
@@ -24,28 +22,24 @@ const StyledCard = styled(Card)(({ theme }) => ({
 }));
 
 const TitleTypography = styled(Typography)(({ theme }) => ({
-  fontFamily: 'Arial, sans-serif',
+  fontFamily: 'Roboto, sans-serif',
   fontSize: '1.1rem',
   fontWeight: 600,
-  color: theme.palette.text.primary,
   marginBottom: '12px',
   letterSpacing: '0.5px',
 }));
 
 const ContentTypography = styled(Typography)(({ theme }) => ({
-  fontFamily: 'Helvetica, Arial, sans-serif',
+  fontFamily: 'Roboto, Arial, sans-serif',
   '&.count': {
     fontSize: '1.8rem',
     fontWeight: 300,
-    color: theme.palette.primary.main,
     marginBottom: '8px',
-    textShadow: '1px 1px 2px rgba(0,0,0,0.1)',
+
   },
   '&.sum': {
     fontSize: '1.8rem',
     fontWeight: 300,
-    color: theme.palette.secondary.main,
-    textShadow: '1px 1px 2px rgba(0,0,0,0.1)',
   },
 }));
 
@@ -67,7 +61,7 @@ function CardComp({ transactions, month, year, name, width }) {
           Number of {name}s is {transactions.length}
         </ContentTypography>
         <ContentTypography className="sum" component="div">
-         Amount is ${sum.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+          Amount is ${sum.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
         </ContentTypography>
       </CardContent>
     </StyledCard>

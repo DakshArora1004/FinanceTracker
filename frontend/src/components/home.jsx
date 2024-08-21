@@ -13,14 +13,9 @@ import Categories from "./homeui/categories";
 import { Dashboard } from "@mui/icons-material";
 import { useTransactionData } from "@/context/TransactionContext";
 function Home() {
-  const { 
-    transactions, 
-    incomes, 
-    sum, 
-    categorizedSum, 
-    data 
-  } = useTransactionData();
-  console.log(`Transactions: ${transactions}`);
+  const { transactions, incomes, sum, categorizedSum, data } =
+    useTransactionData();
+  console.log(`Transactions: ${JSON.stringify(transactions, null, 2)}`);
   console.log(`Incomes: ${incomes}`);
 
   const navigate = useNavigate();
@@ -31,29 +26,28 @@ function Home() {
     navigate("create/");
   };
 
-
   return (
-    
-    <Box sx={{ textAlign: "center" }}>
-      <HomeBar 
-  title={"Dashboard"} 
-  transactions={transactions || []} 
-  incomeTransaction={incomes || []}
-/>
-<Categories transactions={transactions || []} />
-<PieChart data={data || []}/>
+    <Box sx={{ textAlign: "center", display:'flex', flexDirection: 'column', gap: '10px'}}>
+      <HomeBar
+        title={"Dashboard"}
+        transactions={transactions || []}
+        incomeTransaction={incomes || []}
+        showCards={true}
+      />
+      <Box
+      >
+        <Categories transactions={transactions || []} sx={{ marginRight: 2 }} />
+        <br />
+        <br />
+        <PieChart data={data || []} />
+      </Box>
 
       <Box sx={{ display: "flex", gap: "5px", justifyContent: "center" }}>
-          <Button
-            variant="contained"
-            endIcon={<AddIcon />}
-            onClick={goToCreate}
-          >
-            Add Transaction
-          </Button>
-          <ExportToExcel apiData={transactions} fileName={fileName} />
-
-        </Box>
+        <Button variant="contained" endIcon={<AddIcon />} onClick={goToCreate}>
+          Add Transaction
+        </Button>
+        <ExportToExcel apiData={transactions} fileName={fileName} />
+      </Box>
     </Box>
   );
 }

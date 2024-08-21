@@ -25,8 +25,8 @@ function NavBar() {
         <Nav.Link as={Link} to="/create" className="nav-item">
           <i className="fas fa-envelope"></i> {expanded && 'Add Transaction'}
         </Nav.Link>
-        <Nav.Link as={Link} to="/users" className="nav-item">
-          <i className="fas fa-users"></i> {expanded && 'Users'}
+        <Nav.Link as={Link} to="/transactions" className="nav-item">
+          <i className="fas fa-users"></i> {expanded && 'View Transactions'}
         </Nav.Link>
         <Nav.Link as={Link} to="/rewards" className="nav-item">
           <i className="fas fa-gift"></i> {expanded && 'Rewards'}

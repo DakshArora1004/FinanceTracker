@@ -19,6 +19,7 @@
     "@mui/icons-material": "^5.16.4",
     "@mui/material": "^5.16.4",
     "@mui/x-date-pickers": "^7.11.0",
+    "@nivo/bar": "^0.87.0",
     "@nivo/pie": "^0.87.0",
     "@nivo/treemap": "^0.87.0",
     "@radix-ui/react-dialog": "^1.1.1",

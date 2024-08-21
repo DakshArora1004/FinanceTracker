@@ -1,6 +1,7 @@
+import { Box, Typography } from '@mui/material';
 import { ResponsiveTreeMap } from '@nivo/treemap'
 import { useEffect, useState } from 'react';   
-
+import CategoryIcon from '@mui/icons-material/Category';
 function Categories({transactions}){
     const [categorizedSum, setCategorizedSum] = useState({});
     useEffect(() => {
@@ -23,7 +24,7 @@ function Categories({transactions}){
             "fill": "#333333",
             "outlineWidth": 0,
             "outlineColor": "transparent",
-            "fontFamily": "DM Sans"
+            "fontFamily": "Roboto, sans-serif"
         },
         "axis": {
             "domain": {
@@ -165,7 +166,7 @@ function Categories({transactions}){
                     ]
                 ]
             }}
-            orientLabel={false}
+            // orientLabel={false}
             enableParentLabel={false}
             parentLabelSize={15}
             parentLabelPosition="left"
@@ -178,17 +179,22 @@ function Categories({transactions}){
                     ]
                 ]
             }}
-            colors={{ scheme: 'tableau10' }}
+            colors={{ scheme: 'paired' }}
             nodeOpacity={0.7}
-            borderWidth={2}
-            borderColor={{ theme: 'labels.text.fill' }}
         />
     )
 
     return(
-        <div style={{ height: 500 }}>
+
+        <Box sx={{ height: 400 }}>
+        <Box sx={{display: 'flex',  alignItems: 'center', textAlign: 'center'}}>
+            <CategoryIcon color='primary'/>
+            <Typography variant="h3" color="primary" sx={{ fontFamily: 'Arial, sans-serif', fontWeight: '700' }}>Categories</Typography>
+        </Box>
+
             <MyResponsiveTreeMap data={data} />
-        </div>
+        </Box>
+
     )
 }
 

@@ -17,7 +17,7 @@ const Item = styled('div')(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-function HomeBar({title,transactions, incomeTransaction}) {
+function HomeBar({title,transactions, incomeTransaction,showCards}) {
   const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
   
     let defaultValueMonth=new Date().getMonth();
@@ -73,20 +73,26 @@ function HomeBar({title,transactions, incomeTransaction}) {
         alignItems: 'stretch',
         gap: 3
       }}>
-        <Card 
-          transactions={transactions} 
-          month={selectedMonth} 
-          year={selectedYear} 
-          name="Expense" 
-          width={{ xs: '100%', sm: '48%', md: '45%' }}
-        />
-        <Card 
-          transactions={incomeTransaction} 
-          month={selectedMonth} 
-          year={selectedYear} 
-          name="Income" 
-          width={{ xs: '100%', sm: '48%', md: '50%' }}
-        />
+{showCards && (
+  <>
+    <Card 
+      transactions={transactions} 
+      month={selectedMonth} 
+      year={selectedYear} 
+      name="Expense" 
+      width={{ xs: '100%', sm: '48%', md: '45%' }}
+    />
+    <Card 
+      transactions={incomeTransaction} 
+      month={selectedMonth} 
+      year={selectedYear} 
+      name="Income" 
+      width={{ xs: '100%', sm: '48%', md: '50%' }}
+    />
+  </>
+)}
+
+
       </Box>
     </Box>
   );
